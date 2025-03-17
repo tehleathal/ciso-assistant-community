@@ -46,7 +46,6 @@ class ExportBackupView(APIView):
                 "sessions.session",
                 "iam.ssosettings",
                 "knox.authtoken",
-                "auditlog.logentry",
             ],
             indent=4,
             stdout=buffer,
@@ -78,7 +77,6 @@ class LoadBackupView(APIView):
                     "sessions.session",
                     "iam.ssosettings",
                     "knox.authtoken",
-                    "auditlog.logentry",
                 ],
             )
         except Exception as e:
