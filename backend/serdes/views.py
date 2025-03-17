@@ -40,6 +40,8 @@ class ExportBackupView(APIView):
         # NOTE: We will not be able to dump selected folders with this method.
         management.call_command(
             dumpdata.Command(),
+            "--natural-foreign",
+            "--natural-primary",
             exclude=[
                 "contenttypes",
                 "auth.permission",
@@ -68,6 +70,8 @@ class LoadBackupView(APIView):
         try:
             management.call_command(
                 "dumpdata",
+                "--natural-foreign",
+                "--natural-primary",
                 stdout=backup_buffer,
                 format="json",
                 verbosity=0,
